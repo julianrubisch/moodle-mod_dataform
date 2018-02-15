@@ -284,7 +284,7 @@ class dataformfilter {
         // Sql for fetching the entries.
         $count = ' COUNT(e.id) ';
 
-        $whatentry = ' e.id, e.dataid, e.state, e.timecreated, e.timemodified, e.userid, e.groupid, e.type ';
+        $whatentry = ' e.id, e.dataid, e.state, e.timecreated, e.timemodified, e.userid, e.groupid ';
         $tables = " {dataform_entries} e $fromuser ";
         $wheredfid = " e.dataid = ? ";
 
@@ -305,7 +305,7 @@ class dataformfilter {
         // Params array for the sql.
         $params = array();
         $params[] = $this->dataid;
-        $params = array_merge($params, $etypeparams, $userparams, $groupparams, $sortparams);
+        $params = array_merge($params, /*$etypeparams,*/ $userparams, $groupparams, $sortparams);
         $allparams = array_merge($params, $eidparams, $searchparams, $contentparams);
 
         $sql = new \stdClass;
