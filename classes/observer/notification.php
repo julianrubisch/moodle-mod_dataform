@@ -323,7 +323,7 @@ class notification {
 
         if (!empty($data->recipient['email'])) {
             $emails = explode(',', $data->recipient['email']);
-            $userfields = array_fill_keys(get_all_user_name_fields(), '');
+            $userfields = array_fill_keys(\core_user\fields::get_name_fields(), '');
             foreach ($emails as $email) {
                 if (filter_var($email, FILTER_VALIDATE_EMAIL) !== false) {
                     $user = (object) $userfields;

@@ -106,7 +106,7 @@ class dataformfield_entryauthor_renderer extends mod_dataform\pluginbase\datafor
 
         if ($entry->id < 0) {
             // New entry.
-            $allnames = get_all_user_name_fields();
+            $allnames = \core_user\fields::get_name_fields();
             foreach ($allnames as $allname) {
                 $entry->$allname = $USER->$allname;
             }
